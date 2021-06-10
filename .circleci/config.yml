@@ -37,8 +37,9 @@ jobs:
             docker push $DOCKER_LOGIN/$IMAGE_NAME
 
 workflows:
+
   build-and-test:
     jobs:
     - run_tests
-      - build_docker_image
+    - build_docker_image
     
