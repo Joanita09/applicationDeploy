@@ -33,7 +33,6 @@ jobs:
             export TAG=0.2.<< pipeline.number >>
             export IMAGE_NAME=$circle_project_name
             docker build -t 562709/latest .
-            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push 562709/latest
 
       - run:
