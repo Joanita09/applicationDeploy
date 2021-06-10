@@ -39,13 +39,10 @@ jobs:
       - run:
           name: deploy to app engine 
           command: |
-          echo ${GCLOUD_KEY} > /tmp/sa_key.json
-          gcloud auth activate-service-account --key-file/tmp/sa_key.json
-          rm /tmp/sa_key.json 
           gcloud config set project applicationdeploy-316402
           gcloud config set compute/region us-east1
           gcloud app deploy
-          
+
 
 workflows:
 
