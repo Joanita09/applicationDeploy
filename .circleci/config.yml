@@ -34,7 +34,7 @@ jobs:
             export IMAGE_NAME=$circle_project_name
             docker build -t 562709/latest .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-            docker push $DOCKER_LOGIN/$IMAGE_NAME
+            docker push 562709/latest
 
       - run:
           name: deploy to app engine 
