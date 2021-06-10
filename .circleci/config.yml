@@ -52,10 +52,5 @@ workflows:
   build-and-test:
     jobs:
     - run_tests
-    - build_docker_image
-        - deploy:
-            filters:
-              branches:
-                only:
-                  - master 
+    - build_deploy_docker_image
       
