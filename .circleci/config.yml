@@ -53,9 +53,9 @@ workflows:
     jobs:
     - run_tests
     - build_docker_image
-    - deploy:
-        filters:
-          branches:
-            only:
-              - master 
-    
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master 
+      
