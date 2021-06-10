@@ -20,7 +20,7 @@ jobs:
           command: |
             ./node_modules/mocha/bin/mocha test/
 
-  build_docker_image:
+  build_deploy_docker_image:
     docker:
       - image: circleci/node:12
     steps:
@@ -36,10 +36,25 @@ jobs:
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push $DOCKER_LOGIN/$IMAGE_NAME
 
+      - run:
+          name: deploy to app engine 
+          command: |
+          echo ${GCLOUD_KEY} > /tmp/sa_key.json
+          gcloud auto activate-service-account --key-file/tmp/sa_key.json
+          rm /tmp/sa_key.json
+          gcloud config set project applicationdeploy-316402
+          gcloud config set compute/region us-east1
+          gcloud app deploy
+
 workflows:
 
   build-and-test:
     jobs:
     - run_tests
     - build_docker_image
+    - deploy:
+        filters:
+          branches:
+            only:
+              - master 
     
