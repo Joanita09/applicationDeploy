@@ -32,7 +32,7 @@ jobs:
           command: |
             export TAG=0.2.<< pipeline.number >>
             export IMAGE_NAME=$circle_project_name
-            docker build -t $IMAGE_NAME . 
+            docker build -t $IMAGE_NAME:latest .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push $DOCKER_LOGIN/$IMAGE_NAME
 
@@ -53,4 +53,3 @@ workflows:
     jobs:
     - run_tests
     - build_deploy_docker_image
-      
