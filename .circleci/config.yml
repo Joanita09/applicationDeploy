@@ -31,8 +31,8 @@ jobs:
           name: Build Docker image
           command: |
             export TAG=0.2.<< pipeline.number >>
-            export IMAGE_NAME=$circle_project_name
-            docker build -t $IMAGE_NAME:latest .
+            export IMAGE_NAME=$applicationDeploy
+            docker build -t $name:latest .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push $DOCKER_LOGIN/$IMAGE_NAME
 

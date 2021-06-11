@@ -1,5 +1,5 @@
-
 function factorialize(number){
+    document.getElementById('integer').value = number; 
         var result = 1;
         for (var i = 1; i <= number; i++){
             result = result * i;
@@ -7,6 +7,7 @@ function factorialize(number){
             return result;
     };
 
-module.exports = factorialize; 
+document.getElementById('output1').innerHTML = factorialize(number);
+
 
 
