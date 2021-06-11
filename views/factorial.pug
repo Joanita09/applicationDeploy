@@ -1,14 +1,16 @@
 doctype html
 html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet' href='./factorialApp.css')
-    title Factorial App
-  body
-    div
-      button(onclick='factorialize()')
-        | Factorial App
-        input#factorial(type='number' name='factorial')
-    script(src='./factorialApp.js')
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='./factorialApp.css')
+  title Factorial App
+body
+  label(for='Factorial Calculator')
+  input#integer(type='number' name='value1')
+  button.button(onclick='factorialize()') Calculate Factorial
+  p Factorial Result
+  .output
+    output#output1(for='Result' name='factorial')
+script(src='./factorialApp1.js')
